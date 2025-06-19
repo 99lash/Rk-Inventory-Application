@@ -1,0 +1,22 @@
+{
+  "name": "rk-inventory-application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node db/init.js && node app.js",
+    "dev": "node db/init.js && node --watch app.js"
+  },
+  "keywords": [
+    "inventory"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "An inventory management web application for a mechanical keyboard company",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nanoid": "^5.1.5",
+    "pg": "^8.16.0"
+  }
+}
