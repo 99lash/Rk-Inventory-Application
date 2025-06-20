@@ -8,6 +8,8 @@ const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const categoriesRouter = require('./routes/categoriesRouter');
 const usersRouter = require('./routes/usersRouter');
+const modelsRouter = require('./routes/modelsRouter');
+const rolesRouter = require('./routes/rolesRouter');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,7 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 /* Routers */
+app.use('/roles', rolesRouter);
 app.use('/users', usersRouter);
+app.use('/models', modelsRouter);
 app.use('/categories', categoriesRouter);
 app.use('/products', productsRouter);
 app.use('/', indexRouter);
