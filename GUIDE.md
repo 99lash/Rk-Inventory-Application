@@ -82,3 +82,21 @@ Delete model
 
     DELETE /models/:id
 
+## User Roles
+
+Create role
+
+    POST /roles
+
+Get all roles
+
+    GET /roles
+
+Update role info (name)
+
+    PUT /roles/:id
+
+Delete role
+
+    DELETE /roles/:id
+
