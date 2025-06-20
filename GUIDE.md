@@ -36,9 +36,9 @@ DELETE
 
     DELETE /categories/:id
 
-## Inventory
+## Inventory [di muna kailangan]
 
-View products stock
+View products stock 
 
     GET /inventory/:product_id
 
@@ -63,3 +63,22 @@ Update user info (roles, username, password, email)
 Delete user
 
     DELETE /users/:id
+
+## Models
+
+Create model
+
+    POST /models
+
+Get all models
+
+    GET /models
+
+Update model info (name, layout, connectivity, switch_support)
+
+    PUT /models/:id
+
+Delete model
+
+    DELETE /models/:id
+

@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS categories (
 
 CREATE TABLE IF NOT EXISTS models (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) UNIQUE NOT NULL,
     layout VARCHAR(20) NOT NULL,
     connectivity VARCHAR(100),
     switch_support VARCHAR(100),
@@ -57,16 +57,16 @@ INSERT INTO users_roles (name) VALUES
     ('admin'),
     ('user'),
     ('moderator'),
-    ('guest');
--- ON CONFLICT (name) DO NOTHING;
+    ('guest')
+ON CONFLICT (name) DO NOTHING;
 
 -- seeds categories
 INSERT INTO categories (name, description) VALUES 
     ('keyboards', 'Mechanical keyboards (60%, 65%, 75%, TKL, 96%, Full-size)'),
     ('switches', 'Mechanical keyboard switches (linear, tactile, clicky)'),
     ('keycaps', 'Keycap sets (PBT, ABS, various profiles)'),
-    ('accessories', 'Other accessories (wrist rests, cables, pullers, etc.)');
--- ON CONFLICT (name) DO NOTHING;
+    ('accessories', 'Other accessories (wrist rests, cables, pullers, etc.)')
+ON CONFLICT (name) DO NOTHING;
 
 -- seeds models
 INSERT INTO models (name, layout, connectivity, switch_support) VALUES
@@ -81,5 +81,5 @@ INSERT INTO models (name, layout, connectivity, switch_support) VALUES
     ('M75', '75%', 'Bluetooth / 2.4GHz / Wired', 'Gasket-mounted'),
     ('R75', '75%', 'Bluetooth / 2.4GHz / Wired', 'Gasket-mounted'),
     ('S98', '98 Keys', 'Bluetooth / 2.4GHz / Wired', 'Gasket-mounted'),
-    ('S108', 'Full-size', 'Bluetooth / 2.4GHz / Wired', 'Retro Typewriter-style');
--- ON CONFLICT (name) DO NOTHING;
+    ('S108', 'Full-size', 'Bluetooth / 2.4GHz / Wired', 'Retro Typewriter-style')
+ON CONFLICT (name) DO NOTHING;
