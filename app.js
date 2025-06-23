@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
 require('dotenv').config();
 
-const errorHandler = require('./middlewares/errorHandler');
 
+const errorHandler = require('./middlewares/errorHandler');
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const categoriesRouter = require('./routes/categoriesRouter');
@@ -18,6 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 /* Routers */
 app.use('/roles', rolesRouter);
