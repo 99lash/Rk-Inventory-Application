@@ -1,0 +1,11 @@
+<main class="page-content">
+  <% if (content.name === 'dashboard') { %>
+    <%- include('../pages/dashboard', content.data) %>
+  <% } else if (content.name === 'product') { %>
+    <%- include('../pages/product', content) %>
+  <% } else if (content.name === 'newProduct') { %>
+    <%- include('../pages/newProduct', content) %>
+  <% } else if (content.name === 'editProduct') { %>
+    <%- include('../pages/editProduct', content) %>
+  <% } %>
+</main>

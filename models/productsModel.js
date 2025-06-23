@@ -2,8 +2,35 @@ const db = require('../db/index');
 const NotFoundError = require('../errors/NotFoundError');
 const AlreadyExistError = require('../errors/AlreadyExistError');
 
+const retrieveLowStock = async () => {
+  const query = `
+  SELECT * 
+  FROM products AS p
+  INNER JOIN inventory AS i
+  ON p.id = i.product_id
+  WHERE i.quantity < 3;
+  `
+  const { rows } = await db.query(query);
+  return rows;
+}
+
 const retrieveAll = async () => {
-  const query = 'SELECT * FROM products;'
+  const query = `
+  SELECT 
+    p.id AS product_id,
+    p.name AS product_name,
+    p.description,
+    p.price,
+    c.name AS category_name,
+    p.model_id,
+    p.created_at,
+    p.updated_at,
+    i.quantity,
+    i.updated_at AS inventory_updated_at
+  FROM products AS p
+  INNER JOIN inventory AS i ON p.id = i.product_id
+  INNER JOIN categories AS c ON c.id = p.category_id;
+  `
   const { rows } = await db.query(query);
   return rows;
 };
@@ -14,8 +41,8 @@ const retrieveProductById = async (id) => {
   const productResponse = await db.query(productQuery, [id]);
   const inventoryResponse = await db.query(inventoryQuery, [id]);
   return {
-    product: productResponse.rows,
-    inventory: inventoryResponse.rows,
+    product: productResponse.rows[0],
+    inventory: inventoryResponse.rows[0],
     isExists: productResponse.rowCount && inventoryResponse.rowCount ? true : false
   };
 
@@ -103,5 +130,6 @@ module.exports = {
   retrieveProductById,
   createProduct,
   updateProductById,
-  deleteProductById
+  deleteProductById,
+  retrieveLowStock
 }

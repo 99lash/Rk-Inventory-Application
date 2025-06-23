@@ -1,5 +1,12 @@
 const { Router } = require('express');
-const { getProducts, getProductById, addProduct, updateProduct, deleteProduct } = require('../controllers/productsController');
+const { 
+  getProducts,
+  getProductById,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  renderCreatePage
+} = require('../controllers/productsController');
 
 const productsRouter = Router();
 
@@ -8,6 +15,13 @@ const productsRouter = Router();
   @desc   get all products
 */
 productsRouter.get('/', getProducts);
+
+
+/* 
+  @route  GET /products/new
+  @desc   get create product page
+*/
+productsRouter.get('/new', renderCreatePage);
 
 /* 
   @route  GET /products/:id

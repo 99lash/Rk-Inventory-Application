@@ -1,0 +1,32 @@
+<h3 class="section-title title">Products</h3>
+<div class="add-product-wrapper">
+  <a href="/products/new" class="add-product-button">+ Add Product</a>
+</div>
+<div class="products-grid products-grid--list">
+  <div class="product-list-header">Product</div>
+  <div class="product-list-header">Category</div>
+  <div class="product-list-header">Price</div>
+  <div class="product-list-header">Stock</div>
+  <div class="product-list-header">Actions</div>
+
+   <% data.forEach(p => { %>
+    <div class="product-list-cell">
+      <%= p.product_name %>
+    </div>
+    <div class="product-list-cell">
+      <%= p.category_name %>
+    </div>
+    <div class="product-list-cell">
+      <%= p.price %>
+    </div>
+    <div class="product-list-cell">
+      <%= p.quantity %>
+    </div>
+    <div class="product-list-cell">
+      <button class="btn btn-edit" data-id="<%= p.product_id %>">Edit</button>
+      <button class="btn btn-delete" data-id="<%= p.product_id %>">Delete</button>
+    </div>  
+   <% }) %>
+</div>
+
+
