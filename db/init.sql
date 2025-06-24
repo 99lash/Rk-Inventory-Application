@@ -1,17 +1,3 @@
-CREATE TABLE IF NOT EXISTS users_roles (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) UNIQUE NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS users (
-    id VARCHAR(21) PRIMARY KEY,
-    role_id INTEGER REFERENCES users_roles(id) ON DELETE CASCADE,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 CREATE TABLE IF NOT EXISTS categories (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
@@ -45,20 +31,6 @@ CREATE TABLE IF NOT EXISTS inventory (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS product_images (
-    id SERIAL PRIMARY KEY,
-    product_id VARCHAR(21) REFERENCES products(id) ON DELETE CASCADE,
-    image_url TEXT NOT NULL,
-    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- seeds users_roles
-INSERT INTO users_roles (name) VALUES
-    ('admin'),
-    ('user'),
-    ('moderator'),
-    ('guest')
-ON CONFLICT (name) DO NOTHING;
 
 -- seeds categories
 INSERT INTO categories (name, description) VALUES 
