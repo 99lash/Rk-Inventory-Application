@@ -7,5 +7,11 @@
     <%- include('../pages/newProduct', content) %>
   <% } else if (content.name === 'editProduct') { %>
     <%- include('../pages/editProduct', content) %>
+  <% } else if (content.name === 'model') { %>
+    <%- include('../pages/model', content) %>
+  <% } else if (content.name === 'newModel') { %>
+    <%- include('../pages/newModel') %>
+  <% } else if (content.name === 'editModel') { %>
+    <%- include('../pages/editModel', content) %>
   <% } %>
 </main>

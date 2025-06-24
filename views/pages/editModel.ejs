@@ -1,0 +1,31 @@
+<% console.log(model) %>
+
+<div class="form-wrapper">
+  <h2 class="form-title">Add New Model</h2>
+  <form action="/models/<%= model.id %>/update?_method=PUT" method="POST" class="form">
+    <div class="form-group">
+      <label for="name">Model Name</label>
+      <input type="text" name="name" id="name" value="<%= model.name %>" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="layout">Layout</label>
+      <input type="text" name="layout" id="layout" value="<%= model.layout %>" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="connectivity">Connectivity</label>
+      <input type="text" name="connectivity" id="connectivity" value="<%= model.connectivity %>" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="switch_support">Switch Support</label>
+      <input type="text" name="switch_support" id="switch_support" value="<%= model.switch_support %>" required/>
+    </div>
+
+    <div class="form-actions">
+      <a href="/models" class="btn-secondary">← Back</a>
+      <button type="submit" class="btn-submit">Update</button>
+    </div>
+  </form>
+</div>

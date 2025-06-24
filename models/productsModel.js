@@ -96,11 +96,12 @@ const updateProductById = async (id, updatingProduct) => {
       description = $2,
       price = $3,
       category_id = $4,
-      model_id = $5
-    WHERE id = $6
+      model_id = $5,
+      updated_at = $6
+    WHERE id = $7
     RETURNING *; 
   `;
-  const productResponse = await db.query(productQuery, [name, description, price, category_id, model_id, id]);
+  const productResponse = await db.query(productQuery, [name, description, price, category_id, model_id, new Date(), id]);
   const inventoryQuery = `
     UPDATE inventory
     SET quantity = $1

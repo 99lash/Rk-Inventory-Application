@@ -1,5 +1,12 @@
 const { Router } = require('express');
-const { getModels, getModelById, addModel, updateModel, deleteModel} = require('../controllers/modelsController');
+const {
+  getModels,
+  getModelById,
+  addModel,
+  updateModel,
+  deleteModel,
+  renderCreatePage
+} = require('../controllers/modelsController');
 
 const modelsRouter = Router();
 
@@ -8,6 +15,12 @@ const modelsRouter = Router();
   @desc   get all models
 */
 modelsRouter.get('/', getModels);
+
+/* 
+  @route  GET /models/new
+  @desc   get create model page
+*/
+modelsRouter.get('/new', renderCreatePage);
 
 /* 
   @route  GET /models/:id
@@ -22,15 +35,15 @@ modelsRouter.get('/:id', getModelById);
 modelsRouter.post('/', addModel);
 
 /* 
-  @route  PUT /models/:id
+  @route  PUT /models/:id/update
   @desc   dpdate model
 */
-modelsRouter.put('/:id', updateModel);
+modelsRouter.put('/:id/update', updateModel);
 
 /* 
-  @route  DELETE /models/:id
+  @route  DELETE /models/:id/delete
   @desc   delete model
 */
-modelsRouter.delete('/:id', deleteModel);
+modelsRouter.delete('/:id/delete', deleteModel);
 
 module.exports = modelsRouter;

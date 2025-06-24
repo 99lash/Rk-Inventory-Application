@@ -12,7 +12,7 @@ const retrieveModelById = async (id) => {
   const modelQuery = 'SELECT * FROM models WHERE id = $1;'
   const modelResponse = await db.query(modelQuery, [id]);
   return {
-    model: modelResponse.rows,
+    model: modelResponse.rows[0],
     isExists: modelResponse.rowCount ? true : false
   };
 

@@ -1,0 +1,43 @@
+<h3 class="section-title title">Models</h3>
+<div class="add-model-wrapper add-wrapper">
+  <a href="/models/new" class="add-model-button add-btn">+ Add Model</a>
+</div>
+<div class="products-grid grid-list">
+  <div class="model-list-header list-header">Model</div>
+  <div class="model-list-header list-header">Layout</div>
+  <div class="model-list-header list-header">Connectivity</div>
+  <div class="model-list-header list-header">Switch Support</div>
+  <div class="model-list-header list-header">Actions</div>
+
+   <% data.forEach(m => { %>
+    <div class="product-list-cell list-cell">
+      <%= m.name %>
+    </div>
+    <div class="product-list-cell list-cell">
+      <%= m.layout %>
+    </div>
+    <div class="product-list-cell list-cell">
+      <%= m.connectivity %>
+    </div>
+    <div class="product-list-cell list-cell">
+      <%= m.switch_support %>
+    </div>
+    <div class="product-list-cell list-cell">
+      <button class="btn btn-edit" data-id="<%= m.id %>" onclick="handleProtectedAction(event, '<%= m.id %>', 'edit')">
+        Edit
+      </button>
+      <form id="edit-form-<%= m.id %>" action="/models/<%= m.id %>" method="GET" style="display: none;">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="auth" id="auth-edit-<%= m.id %>">
+      </form>
+      
+      <button class="btn btn-delete" onclick="handleProtectedAction(event, '<%= m.id %>', 'delete')">
+        Delete
+      </button>
+      <form id="delete-form-<%= m.id %>" action="/models/<%= m.id %>/delete?_method=DELETE" method="POST" style="display: none;">
+        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="auth" id="auth-delete-<%= m.id %>">
+      </form>
+    </div>  
+   <% }) %>  
+</div>
