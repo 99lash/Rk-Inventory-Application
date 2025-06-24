@@ -36,13 +36,13 @@ productsRouter.get('/:id', getProductById);
 productsRouter.post('/', addProduct);
 
 /* 
-  @route  PUT /products/:id
+  @route  PUT /products/:id/update
   @desc   dpdate product
 */
 productsRouter.put('/:id/update', updateProduct);
 
 /* 
-  @route  DELETE /products/:id
+  @route  DELETE /products/:id/delete
   @desc   delete product
 */
 productsRouter.delete('/:id/delete', deleteProduct);
