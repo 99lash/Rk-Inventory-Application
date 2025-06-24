@@ -4,10 +4,28 @@ const Categories = require('../models/categoriesModel');
 
 
 const renderDashboard = async (req, res) => {
-  const products = (await Products.retrieveAll());
+  const products = ((await Products.retrieveAll()).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)));
   const models = (await Models.retrieveAll());
   const categories = (await Categories.retrieveAll());
   const totalLowStock = (await Products.retrieveLowStock());
+  
+  console.log(products[0])
+  console.log('----------------------------------------')
+  console.log(models[0])
+  
+  let recentlyAdded = [];
+  for (var i = 0; i < 3; i++) {
+    for (var k = 0; k < categories.length; k++) {
+      if (products[i].model_id === models[k].id) {
+        recentlyAdded[i] = {
+          ...products[i],
+          ...models[i]
+        }
+      }
+    }
+  }
+
+  console.log(recentlyAdded);
 
   res.render('index', {
     windowTitle: 'Home | RK Inventory',
@@ -24,7 +42,8 @@ const renderDashboard = async (req, res) => {
         totalProducts: products.length,
         totalModels: models.length,
         totalCategories: categories.length,
-        totalLowStock: totalLowStock.length
+        totalLowStock: totalLowStock.length,
+        recentlyAdded
       },
     }
   });
