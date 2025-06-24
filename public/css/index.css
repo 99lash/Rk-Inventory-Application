@@ -227,9 +227,9 @@ ol[role='list'] {
 }
 
 
-/*----------  product.ejs comment block  ----------*/
+/*----------  product.ejs, model.ejs comment block  ----------*/
 
-.products-grid--list {
+.grid-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Adjust if needed */
   gap: 0.75rem 1rem;
@@ -238,13 +238,13 @@ ol[role='list'] {
   font-size: 0.95rem;
 }
 
-.product-list-header {
+.list-header {
   font-weight: bold;
   padding: 0.5rem 0;
   border-bottom: 2px solid var(--color-accent);
 }
 
-.product-list-cell {
+.list-cell {
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--color-accent);
 }
@@ -268,11 +268,11 @@ ol[role='list'] {
   color: var(--color-text);
 }
 
-.add-product-wrapper {
+.add-wrapper {
   margin-top: 1rem;
 }
 
-.add-product-button {
+.add-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
   background-color: #4caf50;
