@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { 
+const {
   getProducts,
   getProductById,
   addProduct,
@@ -39,12 +39,14 @@ productsRouter.post('/', addProduct);
   @route  PUT /products/:id
   @desc   dpdate product
 */
-productsRouter.put('/:id', updateProduct);
+productsRouter.put('/:id/update', updateProduct);
 
 /* 
   @route  DELETE /products/:id
   @desc   delete product
 */
-productsRouter.delete('/:id', deleteProduct);
+productsRouter.delete('/:id/delete', deleteProduct);
+
+
 
 module.exports = productsRouter;

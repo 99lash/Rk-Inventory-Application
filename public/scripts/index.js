@@ -15,24 +15,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-document.querySelectorAll('.btn-edit').forEach(button => {
-  button.addEventListener('click', () => {
-    const password = prompt('Enter admin password to edit:');
-    if (!password) return;
+function handleProtectedAction(event, productId, actionType) {
+  event.preventDefault();
+  const secret = prompt('Enter the secret admin password:');
+  if (!secret) return;
 
-    const productId = button.dataset.id;
-    const url = `/products/${productId}?auth=${encodeURIComponent(password)}`;
-    window.location.href = url;
-  });
-});
-
-document.querySelectorAll('.btn-delete').forEach(button => {
-  button.addEventListener('click', () => {
-    const password = prompt('Enter admin password to delete:');
-    if (!password) return;
-
-    const productId = button.dataset.id;
-    const url = `/products/${productId}?auth=${encodeURIComponent(password)}`;
-    window.location.href = url;
-  });
-});
+  const inputId = `auth-${actionType}-${productId}`;
+  const formId = `${actionType}-form-${productId}`;
+  
+  document.getElementById(inputId).value = secret;
+  document.getElementById(formId).submit();
+}

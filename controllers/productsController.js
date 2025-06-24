@@ -5,7 +5,8 @@ const Models = require('../models/modelsModel');
 
 const getProducts = async (req, res, next) => {
   try {
-    const response = await Products.retrieveAll();
+    const response = (await Products.retrieveAll()).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    // console.log(response);
     res.render('index', {
       windowTitle: 'Products | RK Inventory',
       documentTitle: 'Royal Kludge Inventory',
@@ -32,7 +33,6 @@ const getProductById = async (req, res, next) => {
       res.status(401).send('Unauthorized: Invalid password');
       return;
     }
-
     const { id } = req.params;
     const { product, inventory } = await Products.retrieveProductById(id);
     const models = (await Models.retrieveAll());
@@ -86,14 +86,14 @@ const updateProduct = async (req, res, next) => {
 
 const deleteProduct = async (req, res, next) => {
   try {
-    const { auth } = req.query;
-    if (auth !== SECRET_PASSWORD) {
+    const { auth } = req.body;
+    if (auth !== process.env.SECRET_PASSWORD) {
       res.status(401).send('Unauthorized: Invalid password');
       return;
     }
     const { id } = req.params;
-    const response = await Products.deleteProductById(id);
-    res.send(response);
+    await Products.deleteProductById(id);
+    res.redirect('/products')
   } catch (error) {
     next(error);
   }
