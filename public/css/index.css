@@ -258,7 +258,7 @@ ol[role='list'] {
 }
 
 .btn-edit {
-  background-color: #4caf50;
+  background-color: #3156dd;
   color: var(--color-text);
   margin-right: 0.25rem;
 }
@@ -275,7 +275,7 @@ ol[role='list'] {
 .add-product-button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: var(--color-accent);
+  background-color: #4caf50;
   color: var(--color-text);
   text-decoration: none;
   border-radius: 0.375rem;
@@ -283,12 +283,6 @@ ol[role='list'] {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
 }
-
-.add-product-button:hover {
-  background-color: var(--color-primary); 
-  border: 1px solid var(--color-border);
-}
-
 
 /*----------  newProduct.ejs comment block  ----------*/
 .form-wrapper {
@@ -340,34 +334,23 @@ ol[role='list'] {
 }
 .btn-submit {
   padding: 0.5rem 1.25rem;
-  background-color: var(--color-muted);
-  color: white;
-  border: none;
+  background-color: #3156dd;
+  color: var(--color-text);
   border-radius: 0.375rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
-.btn-submit:hover {
-  background-color: var(--color-primary); 
-  border: 1px solid var(--color-border);
 }
 
 .btn-secondary {
   padding: 0.5rem 1.25rem;
-  background-color: var(--color-muted);
-  color: white;
+  color: var(--color-text);
   border: none;
   border-radius: 0.375rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-primary);
-  border: 1px solid var(--color-border);
+  background-color: #f44336;
 }
 
 .btn-submit,
