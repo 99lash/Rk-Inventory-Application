@@ -1,0 +1,35 @@
+<h3 class="section-title title">Categories</h3>
+<div class="add-category-wrapper add-wrapper">
+  <a href="/categories/new" class="add-category-button add-btn">+ Add Category</a>
+</div>
+<div class="categories-grid-list">
+  <div class="category list-header">Name</div>
+  <div class="category list-header">Description</div>
+  <div class="category list-header">Actions</div>
+
+  <% data.forEach(c => { %>
+    <div class="category-list-cell list-cell">
+      <%= c.name %>
+    </div>
+    <div class="category-list-cell list-cell">
+      <%= c.description %>
+    </div>
+    <div class="category-list-cell list-cell">
+      <!-- <button class="btn btn-edit" data-id="<%= c.id %>" onclick="handleProtectedAction(event, '<%= c.id %>', 'edit')">
+        Edit
+      </button>
+      <form id="edit-form-<%= c.id %>" action="/categories/<%= c.id %>" method="GET" style="display: none;">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="auth" id="auth-edit-<%= c.id %>">
+      </form> -->
+      
+      <button class="btn btn-delete" onclick="handleProtectedAction(event, '<%= c.id %>', 'delete')">
+        Delete
+      </button>
+      <form id="delete-form-<%= c.id %>" action="/categories/<%= c.id %>/delete?_method=DELETE" method="POST" style="display: none;">
+        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="auth" id="auth-delete-<%= c.id %>">
+      </form>
+    </div>  
+   <% }) %>  
+</div>

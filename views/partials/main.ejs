@@ -13,5 +13,9 @@
     <%- include('../pages/newModel') %>
   <% } else if (content.name === 'editModel') { %>
     <%- include('../pages/editModel', content) %>
+  <% } else if (content.name === 'category') { %>
+    <%- include('../pages/category', content) %>
+  <% } else if (content.name === 'newCategory') { %>
+    <%- include('../pages/newCategory') %>
   <% } %>
 </main>
