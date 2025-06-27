@@ -2,27 +2,27 @@
 <div class="add-model-wrapper add-wrapper">
   <a href="/models/new" class="add-model-button add-btn">+ Add Model</a>
 </div>
-<div class="products-grid grid-list">
+<div class="models-grid grid-list">
   <div class="model-list-header list-header">Model</div>
   <div class="model-list-header list-header">Layout</div>
   <div class="model-list-header list-header">Connectivity</div>
   <div class="model-list-header list-header">Switch Support</div>
   <div class="model-list-header list-header">Actions</div>
-
-   <% data.forEach(m => { %>
-    <div class="product-list-cell list-cell">
+  <% console.log(content) %>
+  <% data.forEach(m => { %>
+    <div class="model-list-cell list-cell">
       <%= m.name %>
     </div>
-    <div class="product-list-cell list-cell">
+    <div class="model-list-cell list-cell">
       <%= m.layout %>
     </div>
-    <div class="product-list-cell list-cell">
+    <div class="model-list-cell list-cell">
       <%= m.connectivity %>
     </div>
-    <div class="product-list-cell list-cell">
+    <div class="model-list-cell list-cell">
       <%= m.switch_support %>
     </div>
-    <div class="product-list-cell list-cell">
+    <div class="model-list-cell list-cell">
       <button class="btn btn-edit" data-id="<%= m.id %>" onclick="handleProtectedAction(event, '<%= m.id %>', 'edit')">
         Edit
       </button>
