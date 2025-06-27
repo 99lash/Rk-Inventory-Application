@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
-require('dotenv').config();
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 
 const errorHandler = require('./middlewares/errorHandler');
@@ -24,7 +27,6 @@ app.use('/models', modelsRouter);
 app.use('/categories', categoriesRouter);
 app.use('/products', productsRouter);
 app.use('/', indexRouter);
-
 
 /* Handles page not found error */
 app.use((req, res, next) => {
