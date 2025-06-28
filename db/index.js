@@ -9,14 +9,4 @@ const pool = new Pool({
   family: 4,
 });
 
-(async () => {
-  try {
-    const { rows } = await pool.query('SELECT NOW()');
-    console.log(`🟢 Database connected at: ${rows[0].now}`);
-  } catch (error) {
-    console.error(`🔴 Error connecting to the database: ${error}`);
-    process.exit(1);
-  }
-})();
-
 module.exports = pool;
