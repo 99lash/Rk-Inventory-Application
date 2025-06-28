@@ -40,8 +40,7 @@ const renderDashboard = async (req, res) => {
         totalProducts: products.length,
         totalModels: models.length,
         totalCategories: categories.length,
-        totalLowStock: totalLowStock.length,
-        recentlyAdded
+        totalLowStock: totalLowStock.length
       },
     }
   });
