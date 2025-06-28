@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "node --watch app.js",
-    "init": "node db/init.js && node db/seeds.js"
+    "start": "node db/init.js && node db/seeds.js && node app.js",
+    "dev": "node --watch app.js"
   },
   "keywords": [
     "inventory"
