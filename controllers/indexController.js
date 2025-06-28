@@ -9,23 +9,21 @@ const renderDashboard = async (req, res) => {
   const categories = (await Categories.retrieveAll());
   const totalLowStock = (await Products.retrieveLowStock());
   
-  console.log(products[0])
-  console.log('----------------------------------------')
-  console.log(models[0])
-  
-  let recentlyAdded = [];
-  for (var i = 0; i < 3; i++) {
-    for (var k = 0; k < categories.length; k++) {
-      if (products[i].model_id === models[k].id) {
-        recentlyAdded[i] = {
-          ...products[i],
-          ...models[i]
-        }
-      }
-    }
-  }
-
-  console.log(recentlyAdded);
+  // console.log(products[0])
+  // console.log('----------------------------------------')
+  // console.log(models[0])
+  // let recentlyAdded = [];
+  // for (var i = 0; i < 3; i++) {
+  //   for (var k = 0; k < categories.length; k++) {
+  //     if (products[i].model_id === models[k].id) {
+  //       recentlyAdded[i] = {
+  //         ...products[i],
+  //         ...models[i]
+  //       }
+  //     }
+  //   }
+  // }
+  // console.log(recentlyAdded);
 
   res.render('index', {
     windowTitle: 'Home | RK Inventory',
