@@ -1,9 +1,8 @@
 # RK Inventory Application
+An inventory management web application for a mechanical keyboard company. This project is part of the course in [The Odin Project](https://www.theodinproject.com/).
 
 ![image](https://github.com/user-attachments/assets/5ae3398a-7938-4c45-8742-834f7d45c8fe)
 
-
-An inventory management web application for a mechanical keyboard company. This project is part of the course in [The Odin Project](https://www.theodinproject.com/).
 ## Built with
 
 ![Static Badge](https://img.shields.io/badge/postgresql-white?style=for-the-badge&logo=postgresql&logoColor=%234169E1&logoSize=64)
@@ -28,18 +27,19 @@ A step by step guide that will tell you how to get the development environment u
 1. Clone this repository
     
         git clone https://github.com/99lash/Rk-Inventory-Application.git
+        cd Rk-Inventory-Application
 
-2. Go to the codebase
+3. Install dependencies
 
-        cd Rk-Inventory-Application 
+        npm install
 
-3. Add .env file in the root and add these environment variables
+4. Add a .env file in the root directory and add these following environment variables
 
        PORT=3000
        DATABASE_URL=[YOUR POSTGRESQL DB_URL] that's why you need a posgresql installed and setup in your local environment
        SECRET_PASSWORD=superadmin
 
-4. Then you're ready to run the application locally.
+5. Then you're ready to run the application locally.
 
        npm run start
 
